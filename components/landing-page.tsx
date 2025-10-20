@@ -356,7 +356,7 @@ export default function LandingPage() {
             {/* CTA Button */}
             <div className="text-center">
               <a
-                href="https://www.ggcheckout.com/checkout/v2/8SuqnaNSp4Z1bnaZIp32"
+                href="https://checkout.amplopay.com/checkout/cmgyh44qs07276llv1j951mil?offer=NHODTM5"
                 target="_blank"
                 rel="noopener noreferrer"
                 id="purchase-button"
@@ -614,7 +614,7 @@ export default function LandingPage() {
               </div>
             </div>
             <a
-              href="https://www.ggcheckout.com/checkout/v2/8SuqnaNSp4Z1bnaZIp32"
+              href="https://checkout.amplopay.com/checkout/cmgyh44qs07276llv1j951mil?offer=NHODTM5"
               target="_blank"
               rel="noopener noreferrer"
               id="purchase-button"
