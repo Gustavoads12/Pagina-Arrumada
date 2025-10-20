@@ -613,8 +613,8 @@ export default function LandingPage() {
               id="purchase-button"
               className="inline-block w-full max-w-md mx-auto mb-4"
             >
-              <div className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-6 px-8 rounded-2xl shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3">
-                <span className="text-3xl">🛒</span>
+              <div className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-6 px-8 rounded-2xl shadow-[0_10px_40px_rgba(34,197,94,0.5)] hover:shadow-[0_15px_50px_rgba(34,197,94,0.7)] border-4 border-green-300 transition-all duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center gap-3 animate-pulse-scale">
+                <span className="text-3xl animate-bounce">🛒</span>
                 <span className="text-xl text-center leading-tight">Sim, quero garantir já o MÉTODO por 19,90€!</span>
               </div>
             </a>
