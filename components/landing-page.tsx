@@ -5,30 +5,32 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Script from "next/script"
+import Image from "next/image"
 
 export default function LandingPage() {
   const [currentSlide, setCurrentSlide] = useState(1)
   const [currentKitSlide, setCurrentKitSlide] = useState(2)
   const [openFAQ, setOpenFAQ] = useState<number | null>(null)
+  const [videoLoaded, setVideoLoaded] = useState(false)
+  // </CHANGE>
 
   const totalSlides = 3
   const totalKitSlides = 7
 
-  // Auto-advance testimonials carousel
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides)
-    }, 5000)
+    }, 6000) // Increased from 5000ms to 6000ms
     return () => clearInterval(interval)
   }, [])
 
-  // Auto-advance kit carousel
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentKitSlide((prev) => (prev + 1) % totalKitSlides)
-    }, 4000)
+    }, 5000) // Increased from 4000ms to 5000ms
     return () => clearInterval(interval)
   }, [])
+  // </CHANGE>
 
   const scrollToCTA = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
@@ -37,6 +39,13 @@ export default function LandingPage() {
       ctaSection.scrollIntoView({ behavior: "smooth", block: "center" })
     }
   }
+
+  const loadVideo = () => {
+    if (!videoLoaded) {
+      setVideoLoaded(true)
+    }
+  }
+  // </CHANGE>
 
   const testimonialImages = [
     "https://i.ibb.co/rf4vhWRG/imgi-18-Whats-App-Image-2025-08-07-at-13-02-34.jpg",
@@ -111,32 +120,52 @@ export default function LandingPage() {
               <h1 className="text-white text-lg md:text-xl font-bold leading-tight">
                 O Método que já ajudou mais de <span className="underline">10.000 crianças</span> com DIFICULDADE e
                 ATRASO a desenvolver a linguagem e a escrita em{" "}
-                <span className="underline text-blue-400 font-extrabold">menos de um MÊS</span> com diversão e
+                <span className="underline text-cyan-300 font-extrabold">menos de um MÊS</span> com diversão e
                 resultados!
               </h1>
             </div>
 
             <div className="relative w-full bg-white rounded-lg overflow-hidden shadow-lg">
-              <div className="wistia_responsive_padding" style={{ padding: "177.78% 0 0 0", position: "relative" }}>
+              {!videoLoaded ? (
                 <div
-                  className="wistia_responsive_wrapper"
-                  style={{ height: "100%", left: 0, position: "absolute", top: 0, width: "100%" }}
+                  className="relative cursor-pointer"
+                  onClick={loadVideo}
+                  style={{ paddingBottom: "177.78%", position: "relative" }}
                 >
-                  <iframe
-                    src="https://fast.wistia.net/embed/iframe/wz47cojpk6?seo=false&videoFoam=true"
-                    title="Video do Método"
-                    allow="autoplay; fullscreen"
-                    allowTransparency={true}
-                    frameBorder="0"
-                    scrolling="no"
-                    className="wistia_embed"
-                    name="wistia_embed"
-                    style={{ width: "100%", height: "100%" }}
-                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-teal-400 to-blue-500 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg hover:scale-110 transition-transform">
+                        <svg className="w-10 h-10 text-teal-500" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                        </svg>
+                      </div>
+                      <p className="text-white font-bold text-lg">Clique para assistir o vídeo</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <script src="https://fast.wistia.net/assets/external/E-v1.js" async />
+              ) : (
+                <div className="wistia_responsive_padding" style={{ padding: "177.78% 0 0 0", position: "relative" }}>
+                  <div
+                    className="wistia_responsive_wrapper"
+                    style={{ height: "100%", left: 0, position: "absolute", top: 0, width: "100%" }}
+                  >
+                    <iframe
+                      src="https://fast.wistia.net/embed/iframe/wz47cojpk6?seo=false&videoFoam=true"
+                      title="Video do Método"
+                      allow="autoplay; fullscreen"
+                      allowTransparency={true}
+                      frameBorder="0"
+                      scrolling="no"
+                      className="wistia_embed"
+                      name="wistia_embed"
+                      loading="lazy"
+                      style={{ width: "100%", height: "100%" }}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
+            {/* </CHANGE> */}
           </div>
         </section>
 
@@ -178,11 +207,15 @@ export default function LandingPage() {
         <section className="px-4 py-4 text-center">
           <div className="max-w-sm mx-auto">
             <div className="bg-gradient-to-r from-yellow-200 to-orange-200 rounded-2xl p-4 mb-4 shadow-lg">
-              <img
+              <Image
                 src="https://i.ibb.co/KjvWvhG6/1-1.jpg"
                 alt="Criança aprendendo com alegria"
+                width={400}
+                height={300}
+                priority
                 className="w-full h-auto object-contain rounded-xl mb-4"
               />
+              {/* </CHANGE> */}
               <p className="text-gray-700 font-semibold text-center text-lg">Criança aprendendo com alegria</p>
             </div>
             <p className="text-lg text-gray-700 mb-4 leading-relaxed">
@@ -322,11 +355,15 @@ export default function LandingPage() {
 
             {/* Kit Image */}
             <div className="mb-4 text-center">
-              <img
+              <Image
                 src="https://i.ibb.co/Z16FjnNB/Kits-pedag-gicos-para-acelerar-a-aprendizagem-fortalecer-a-coordena-o-motora-e-desenvolver-a-consci.jpg"
                 alt="Kits pedagógicos"
+                width={600}
+                height={400}
+                loading="lazy"
                 className="w-full rounded-2xl shadow-lg"
               />
+              {/* </CHANGE> */}
             </div>
 
             {/* Bonuses */}
@@ -337,11 +374,15 @@ export default function LandingPage() {
 
             {/* Bonus Image */}
             <div className="mb-4 text-center">
-              <img
+              <Image
                 src="https://i.ibb.co/F4rSL8s9/Seus-filhos-acham-a-B-blia-chata-Transforme-o-aprendizado-em-divers-o-com-o-Kit-de-Jogos-B-blicos-14.jpg"
                 alt="Bónus exclusivos"
+                width={600}
+                height={400}
+                loading="lazy"
                 className="w-full rounded-2xl shadow-lg"
               />
+              {/* </CHANGE> */}
             </div>
 
             {/* Video Class */}
@@ -417,11 +458,15 @@ export default function LandingPage() {
                 >
                   {testimonialImages.map((img, index) => (
                     <div key={index} className="w-full flex-shrink-0">
-                      <img
+                      <Image
                         src={img || "/placeholder.svg"}
                         alt={`Depoimento ${index + 1}`}
+                        width={400}
+                        height={300}
+                        loading="lazy"
                         className="w-full rounded-2xl"
                       />
+                      {/* </CHANGE> */}
                     </div>
                   ))}
                 </div>
@@ -500,11 +545,15 @@ export default function LandingPage() {
                 >
                   {kitImages.map((img, index) => (
                     <div key={index} className="w-full flex-shrink-0 flex items-center justify-center p-4">
-                      <img
+                      <Image
                         src={img || "/placeholder.svg"}
                         alt={`Atividade do Kit ${index + 1}`}
+                        width={400}
+                        height={400}
+                        loading="lazy"
                         className="max-w-full max-h-[400px] object-contain rounded-2xl"
                       />
+                      {/* </CHANGE> */}
                     </div>
                   ))}
                 </div>
@@ -629,11 +678,15 @@ export default function LandingPage() {
             </h3>
             <div className="bg-white rounded-3xl p-8 shadow-lg">
               <div className="text-center mb-6">
-                <img
+                <Image
                   src="https://i.ibb.co/S44mJhhQ/Chat-GPT-Image-29-de-jul-de-2025-14-59-16.png"
                   alt="Professora Sandra Oliveira"
+                  width={256}
+                  height={256}
+                  loading="lazy"
                   className="w-64 h-64 object-cover rounded-2xl mx-auto mb-6 shadow-lg border-4 border-purple-200"
                 />
+                {/* </CHANGE> */}
                 <h4 className="text-2xl font-bold text-purple-900 mb-2">Professora Sandra Oliveira</h4>
                 <p className="text-lg text-purple-700 font-semibold">Especialista em Desenvolvimento Infantil</p>
               </div>
