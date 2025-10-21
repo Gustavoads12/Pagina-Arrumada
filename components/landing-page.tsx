@@ -607,7 +607,7 @@ export default function LandingPage() {
               </div>
             </div>
             <a
-              href="https://pay.kiwify.com/LnJBa0m"
+              href="https://go.perfectpay.com.br/PPU38CQ2BTT"
               target="_blank"
               rel="noopener noreferrer"
               id="purchase-button"
