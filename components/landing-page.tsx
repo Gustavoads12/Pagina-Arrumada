@@ -87,7 +87,7 @@ export default function LandingPage() {
     },
     {
       question: "6. O Kit é uma assinatura ou pagamento único?",
-      answer: "É um pagamento único de apenas 19,90€. Não existem taxas adicionais nem mensalidades.",
+      answer: "É um pagamento único de apenas R$ 19,90. Não existem taxas adicionais nem mensalidades.",
       color: "indigo",
     },
     {
@@ -554,9 +554,9 @@ export default function LandingPage() {
             <div className="bg-white/20 rounded-2xl p-6 mb-4 border-2 border-white/30">
               <p className="text-lg mb-3">Kit Atividades Grafismo Fonético completo</p>
               <div className="mb-2">
-                <span className="text-2xl text-red-200 line-through">De 35,90€</span>
+                <span className="text-2xl text-red-200 line-through">De R$ 67,90</span>
               </div>
-              <div className="text-6xl font-extrabold mb-3 text-yellow-300 animate-bounce">Por 19,90€</div>
+              <div className="text-6xl font-extrabold mb-3 text-yellow-300 animate-bounce">Por R$ 19,90</div>
               <div className="bg-yellow-400 text-red-800 font-bold py-2 px-4 rounded-full mb-3 text-sm animate-pulse">
                 ⚡ Valor Promocional Somente Hoje ⚡
               </div>
@@ -615,7 +615,7 @@ export default function LandingPage() {
             >
               <div className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-6 px-8 rounded-2xl shadow-[0_10px_40px_rgba(34,197,94,0.5)] hover:shadow-[0_15px_50px_rgba(34,197,94,0.7)] border-4 border-green-300 transition-all duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center gap-3 animate-pulse-scale">
                 <span className="text-3xl animate-bounce">🛒</span>
-                <span className="text-xl text-center leading-tight">Sim, quero garantir já o MÉTODO por 19,90€!</span>
+                <span className="text-xl text-center leading-tight">Sim, quero garantir já o MÉTODO por R$ 19,90!</span>
               </div>
             </a>
           </div>
