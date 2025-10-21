@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Script from "next/script"
 import Image from "next/image"
@@ -11,21 +11,47 @@ export default function LandingPage() {
   const [currentSlide, setCurrentSlide] = useState(1)
   const [currentKitSlide, setCurrentKitSlide] = useState(2)
   const [openFAQ, setOpenFAQ] = useState<number | null>(null)
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false)
+  const videoContainerRef = useRef<HTMLDivElement>(null)
+  // </CHANGE>
 
   const totalSlides = 3
   const totalKitSlides = 7
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShouldLoadVideo(true)
+            observer.disconnect()
+          }
+        })
+      },
+      {
+        rootMargin: "200px", // Load video 200px before it enters viewport
+      },
+    )
+
+    if (videoContainerRef.current) {
+      observer.observe(videoContainerRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+  // </CHANGE>
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides)
-    }, 8000)
+    }, 10000) // Increased from 8000 to 10000 to reduce re-renders
     return () => clearInterval(interval)
   }, [])
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentKitSlide((prev) => (prev + 1) % totalKitSlides)
-    }, 7000)
+    }, 10000) // Increased from 7000 to 10000 to reduce re-renders
     return () => clearInterval(interval)
   }, [])
 
@@ -99,7 +125,8 @@ export default function LandingPage() {
 
   return (
     <>
-      <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="lazyOnload" />
+      {shouldLoadVideo && <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="lazyOnload" />}
+      {/* </CHANGE> */}
 
       <div className="min-h-screen bg-white font-sans">
         <section className="bg-teal-500 px-4 py-6">
@@ -114,27 +141,36 @@ export default function LandingPage() {
               </h1>
             </div>
 
-            <div className="relative w-full bg-white rounded-lg overflow-hidden shadow-lg">
+            <div ref={videoContainerRef} className="relative w-full bg-white rounded-lg overflow-hidden shadow-lg">
               <div className="wistia_responsive_padding" style={{ padding: "177.78% 0 0 0", position: "relative" }}>
                 <div
                   className="wistia_responsive_wrapper"
                   style={{ height: "100%", left: 0, position: "absolute", top: 0, width: "100%" }}
                 >
-                  <iframe
-                    src="https://fast.wistia.net/embed/iframe/wz47cojpk6?seo=false&videoFoam=true"
-                    title="Video do Método"
-                    allow="autoplay; fullscreen"
-                    allowTransparency={true}
-                    frameBorder="0"
-                    scrolling="no"
-                    className="wistia_embed"
-                    name="wistia_embed"
-                    loading="lazy"
-                    style={{ width: "100%", height: "100%" }}
-                  />
+                  {shouldLoadVideo ? (
+                    <iframe
+                      src="https://fast.wistia.net/embed/iframe/wz47cojpk6?seo=false&videoFoam=true"
+                      title="Video do Método"
+                      allow="autoplay; fullscreen"
+                      allowTransparency={true}
+                      frameBorder="0"
+                      scrolling="no"
+                      className="wistia_embed"
+                      name="wistia_embed"
+                      style={{ width: "100%", height: "100%" }}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center">
+                      <div className="text-center text-white">
+                        <div className="text-6xl mb-4">▶️</div>
+                        <p className="text-xl font-bold">Carregando vídeo...</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
+            {/* </CHANGE> */}
           </div>
         </section>
 
