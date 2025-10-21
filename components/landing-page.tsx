@@ -11,8 +11,6 @@ export default function LandingPage() {
   const [currentSlide, setCurrentSlide] = useState(1)
   const [currentKitSlide, setCurrentKitSlide] = useState(2)
   const [openFAQ, setOpenFAQ] = useState<number | null>(null)
-  const [videoLoaded, setVideoLoaded] = useState(false)
-  // </CHANGE>
 
   const totalSlides = 3
   const totalKitSlides = 7
@@ -20,17 +18,16 @@ export default function LandingPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides)
-    }, 6000) // Increased from 5000ms to 6000ms
+    }, 8000)
     return () => clearInterval(interval)
   }, [])
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentKitSlide((prev) => (prev + 1) % totalKitSlides)
-    }, 5000) // Increased from 4000ms to 5000ms
+    }, 7000)
     return () => clearInterval(interval)
   }, [])
-  // </CHANGE>
 
   const scrollToCTA = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
@@ -39,13 +36,6 @@ export default function LandingPage() {
       ctaSection.scrollIntoView({ behavior: "smooth", block: "center" })
     }
   }
-
-  const loadVideo = () => {
-    if (!videoLoaded) {
-      setVideoLoaded(true)
-    }
-  }
-  // </CHANGE>
 
   const testimonialImages = [
     "https://i.ibb.co/rf4vhWRG/imgi-18-Whats-App-Image-2025-08-07-at-13-02-34.jpg",
@@ -109,8 +99,7 @@ export default function LandingPage() {
 
   return (
     <>
-      <Script src="https://fast.wistia.com/player.js" strategy="afterInteractive" />
-      <Script src="https://fast.wistia.com/embed/wz47cojpk6.js" type="module" strategy="afterInteractive" />
+      <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="lazyOnload" />
 
       <div className="min-h-screen bg-white font-sans">
         <section className="bg-teal-500 px-4 py-6">
@@ -126,46 +115,26 @@ export default function LandingPage() {
             </div>
 
             <div className="relative w-full bg-white rounded-lg overflow-hidden shadow-lg">
-              {!videoLoaded ? (
+              <div className="wistia_responsive_padding" style={{ padding: "177.78% 0 0 0", position: "relative" }}>
                 <div
-                  className="relative cursor-pointer"
-                  onClick={loadVideo}
-                  style={{ paddingBottom: "177.78%", position: "relative" }}
+                  className="wistia_responsive_wrapper"
+                  style={{ height: "100%", left: 0, position: "absolute", top: 0, width: "100%" }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-teal-400 to-blue-500 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg hover:scale-110 transition-transform">
-                        <svg className="w-10 h-10 text-teal-500" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                        </svg>
-                      </div>
-                      <p className="text-white font-bold text-lg">Clique para assistir o vídeo</p>
-                    </div>
-                  </div>
+                  <iframe
+                    src="https://fast.wistia.net/embed/iframe/wz47cojpk6?seo=false&videoFoam=true"
+                    title="Video do Método"
+                    allow="autoplay; fullscreen"
+                    allowTransparency={true}
+                    frameBorder="0"
+                    scrolling="no"
+                    className="wistia_embed"
+                    name="wistia_embed"
+                    loading="lazy"
+                    style={{ width: "100%", height: "100%" }}
+                  />
                 </div>
-              ) : (
-                <div className="wistia_responsive_padding" style={{ padding: "177.78% 0 0 0", position: "relative" }}>
-                  <div
-                    className="wistia_responsive_wrapper"
-                    style={{ height: "100%", left: 0, position: "absolute", top: 0, width: "100%" }}
-                  >
-                    <iframe
-                      src="https://fast.wistia.net/embed/iframe/wz47cojpk6?seo=false&videoFoam=true"
-                      title="Video do Método"
-                      allow="autoplay; fullscreen"
-                      allowTransparency={true}
-                      frameBorder="0"
-                      scrolling="no"
-                      className="wistia_embed"
-                      name="wistia_embed"
-                      loading="lazy"
-                      style={{ width: "100%", height: "100%" }}
-                    />
-                  </div>
-                </div>
-              )}
+              </div>
             </div>
-            {/* </CHANGE> */}
           </div>
         </section>
 
