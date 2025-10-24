@@ -57,7 +57,7 @@ export default function LandingPage() {
 
   const scrollToCTA = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    const ctaSection = document.getElementById("purchase-button")
+    const ctaSection = document.getElementById("pricing-section")
     if (ctaSection) {
       ctaSection.scrollIntoView({ behavior: "smooth", block: "center" })
     }
@@ -214,7 +214,7 @@ export default function LandingPage() {
         <section className="px-4 py-6 text-center bg-gradient-to-r from-purple-600 to-purple-800">
           <div className="max-w-sm mx-auto">
             <a
-              href="#purchase-button"
+              href="#pricing-section"
               onClick={scrollToCTA}
               className="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 text-lg inline-block animate-pulse"
             >
@@ -429,6 +429,13 @@ export default function LandingPage() {
                 </div>
               </a>
             </div>
+            {/* </CHANGE> */}
+
+            <div className="mt-6 text-center animate-bounce">
+              <div className="text-6xl">⬇️</div>
+              <p className="text-white font-bold text-lg mt-2">Clique aqui para garantir!</p>
+            </div>
+            {/* </CHANGE> */}
           </div>
         </section>
 
@@ -622,7 +629,11 @@ export default function LandingPage() {
         </section>
 
         {/* Pricing */}
-        <section className="px-4 py-4 bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white">
+        <section
+          id="pricing-section"
+          className="px-4 py-4 bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white"
+        >
+          {/* </CHANGE> */}
           <div className="max-w-sm mx-auto text-center">
             <h3 className="text-2xl font-bold mb-4">💸 Quanto custa?</h3>
             <div className="bg-white/20 rounded-2xl p-6 mb-4 border-2 border-white/30">
