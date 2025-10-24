@@ -13,30 +13,45 @@ export default function LandingPage() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null)
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false)
   const videoContainerRef = useRef<HTMLDivElement>(null)
-  // </CHANGE>
 
-<Script id="kwai-pixel" strategy="afterInteractive">
-  {`
-    !function(e,t){
-      e.KwaiAnalyticsObject="kwaiq";
-      var n=e.kwaiq=e.kwaiq||[];
-      n.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
-      n.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);n.push(t);return n}};
-      for(var o=0;o<n.methods.length;o++){var r=n.methods[o];n[r]=n.factory(r);}
-      n.load=function(e){
-        var a=t.createElement("script");
-        a.type="text/javascript";
-        a.async=!0;
-        a.src="https://s21-def.ap4r.com/kos/s101/nlav112572/pixel/events.js?sdkid="+e+"&lib=kwaiq";
-        var c=t.getElementsByTagName("script")[0];
-        c.parentNode.insertBefore(a,c);
-        n._i=n._i||{},n._i[e]=[],n._t=n._t||{},n._t[e]=+new Date,n._o=n._o||{},n._o[e]={};
-      };
-      n.load("293308791320315");
-      n.page();
-    }(window, document);
-  `}
-</Script>
+  const totalSlides = 3
+  const totalKitSlides = 7
+
+  useEffect(() => { /* ... */ }, [])
+
+  return (
+    <>
+      {/* KWAI PIXEL */}
+      <Script id="kwai-pixel" strategy="afterInteractive">
+        {`
+          !function(e,t){
+            e.KwaiAnalyticsObject="kwaiq";
+            var n=e.kwaiq=e.kwaiq||[];
+            n.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
+            n.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);n.push(t);return n}};
+            for(var o=0;o<n.methods.length;o++){var r=n.methods[o];n[r]=n.factory(r);}
+            n.load=function(e){
+              var a=t.createElement("script");
+              a.type="text/javascript";
+              a.async=!0;
+              a.src="https://s21-def.ap4r.com/kos/s101/nlav112572/pixel/events.js?sdkid="+e+"&lib=kwaiq";
+              var c=t.getElementsByTagName("script")[0];
+              c.parentNode.insertBefore(a,c);
+              n._i=n._i||{},n._i[e]=[],n._t=n._t||{},n._t[e]=+new Date,n._o=n._o||{},n._o[e]={};
+            };
+            n.load("293308791320315");
+            n.page();
+          }(window, document);
+        `}
+      </Script>
+
+      <div className="min-h-screen bg-white font-sans">
+        {/* resto da sua página */}
+      </div>
+    </>
+  )
+}
+
 
   
   const totalSlides = 3
