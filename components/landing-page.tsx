@@ -2,57 +2,13 @@
 
 import type React from "react"
 
-import { useState, useEffect, useRef } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import Script from "next/script"
-import Image from "next/image"
-
 export default function LandingPage() {
   const [currentSlide, setCurrentSlide] = useState(1)
   const [currentKitSlide, setCurrentKitSlide] = useState(2)
   const [openFAQ, setOpenFAQ] = useState<number | null>(null)
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false)
   const videoContainerRef = useRef<HTMLDivElement>(null)
-
-  const totalSlides = 3
-  const totalKitSlides = 7
-
-  useEffect(() => { /* ... */ }, [])
-
-  return (
-    <>
-      {/* KWAI PIXEL */}
-      <Script id="kwai-pixel" strategy="afterInteractive">
-        {`
-          !function(e,t){
-            e.KwaiAnalyticsObject="kwaiq";
-            var n=e.kwaiq=e.kwaiq||[];
-            n.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
-            n.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);n.push(t);return n}};
-            for(var o=0;o<n.methods.length;o++){var r=n.methods[o];n[r]=n.factory(r);}
-            n.load=function(e){
-              var a=t.createElement("script");
-              a.type="text/javascript";
-              a.async=!0;
-              a.src="https://s21-def.ap4r.com/kos/s101/nlav112572/pixel/events.js?sdkid="+e+"&lib=kwaiq";
-              var c=t.getElementsByTagName("script")[0];
-              c.parentNode.insertBefore(a,c);
-              n._i=n._i||{},n._i[e]=[],n._t=n._t||{},n._t[e]=+new Date,n._o=n._o||{},n._o[e]={};
-            };
-            n.load("293308791320315");
-            n.page();
-          }(window, document);
-        `}
-      </Script>
-
-      <div className="min-h-screen bg-white font-sans">
-        {/* resto da sua página */}
-      </div>
-    </>
-  )
-}
-
-
+  // </CHANGE>
   
   const totalSlides = 3
   const totalKitSlides = 7
