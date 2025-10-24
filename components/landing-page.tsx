@@ -179,7 +179,7 @@ export default function LandingPage() {
                 rel="noopener noreferrer"
                 className="inline-block w-full max-w-md mx-auto"
               >
-                <div className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-6 px-8 rounded-2xl shadow-[0_10px_40px_rgba(34,197,94,0.5)] hover:shadow-[0_15px_50px_rgba(34,197,94,0.7)] border-4 border-green-300 transition-all duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center gap-3 animate-pulse-scale">
+                <div className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-bold py-6 px-8 rounded-2xl shadow-[0_10px_40px_rgba(251,146,60,0.5)] hover:shadow-[0_15px_50px_rgba(251,146,60,0.7)] border-4 border-yellow-300 transition-all duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center gap-3 animate-pulse-scale">
                   <span className="text-3xl animate-bounce">🛒</span>
                   <span className="text-xl text-center leading-tight">Sim, quero garantir já o MÉTODO por 19,90€!</span>
                 </div>
@@ -192,11 +192,11 @@ export default function LandingPage() {
         {/* Header */}
         <header className="bg-gradient-to-r from-purple-600 to-purple-800 text-white py-4 px-4 text-center">
           <div className="max-w-sm mx-auto">
-            <div className="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl p-6 mb-4 shadow-2xl border-4 border-white">
-              <h1 className="text-2xl font-extrabold mb-3 leading-tight text-white text-center drop-shadow-lg">
+            <div className="mb-4">
+              <h1 className="text-3xl font-extrabold mb-3 leading-tight text-center drop-shadow-lg bg-gradient-to-r from-yellow-300 via-orange-300 to-yellow-300 bg-clip-text text-transparent">
                 ACELERE 5 VEZES MAIS
                 <br />
-                <span className="text-3xl text-yellow-200">A APRENDIZAGEM</span>
+                <span className="text-4xl">A APRENDIZAGEM</span>
                 <br />
                 DO SEU FILHO!
               </h1>
@@ -423,7 +423,7 @@ export default function LandingPage() {
                 id="purchase-button"
                 className="inline-block w-full max-w-md mx-auto mb-4"
               >
-                <div className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-6 px-8 rounded-2xl shadow-[0_10px_40px_rgba(34,197,94,0.5)] hover:shadow-[0_15px_50px_rgba(34,197,94,0.7)] border-4 border-green-300 transition-all duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center gap-3 animate-pulse-scale">
+                <div className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-bold py-6 px-8 rounded-2xl shadow-[0_10px_40px_rgba(251,146,60,0.5)] hover:shadow-[0_15px_50px_rgba(251,146,60,0.7)] border-4 border-yellow-300 transition-all duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center gap-3 animate-pulse-scale">
                   <span className="text-3xl animate-bounce">🛒</span>
                   <span className="text-xl text-center leading-tight">Sim, quero garantir já o MÉTODO por 19,90€!</span>
                 </div>
@@ -698,7 +698,7 @@ export default function LandingPage() {
               id="purchase-button"
               className="inline-block w-full max-w-md mx-auto mb-4"
             >
-              <div className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-6 px-8 rounded-2xl shadow-[0_10px_40px_rgba(34,197,94,0.5)] hover:shadow-[0_15px_50px_rgba(34,197,94,0.7)] border-4 border-green-300 transition-all duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center gap-3 animate-pulse-scale">
+              <div className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-bold py-6 px-8 rounded-2xl shadow-[0_10px_40px_rgba(251,146,60,0.5)] hover:shadow-[0_15px_50px_rgba(251,146,60,0.7)] border-4 border-yellow-300 transition-all duration-300 transform hover:scale-110 active:scale-95 flex items-center justify-center gap-3 animate-pulse-scale">
                 <span className="text-3xl animate-bounce">🛒</span>
                 <span className="text-xl text-center leading-tight">Sim, quero garantir já o MÉTODO por 19,90€!</span>
               </div>
