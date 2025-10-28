@@ -13,7 +13,6 @@ export default function LandingPage() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null)
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false)
   const videoContainerRef = useRef<HTMLDivElement>(null)
-  // </CHANGE>
 
   const totalSlides = 3
   const totalKitSlides = 7
@@ -39,7 +38,6 @@ export default function LandingPage() {
 
     return () => observer.disconnect()
   }, [])
-  // </CHANGE>
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -126,7 +124,6 @@ export default function LandingPage() {
   return (
     <>
       {shouldLoadVideo && <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="lazyOnload" />}
-      {/* </CHANGE> */}
 
       <div className="min-h-screen bg-white font-sans">
         <section className="bg-teal-500 px-4 py-6">
@@ -170,11 +167,10 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            {/* </CHANGE> */}
 
             <div className="mt-8 text-center">
               <a
-                href="https://go.centerpag.com/PPU38CQ2EPJ"
+                href="https://go.perfectpay.com.br/PPU38CQ2BTT"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block w-full max-w-md mx-auto"
@@ -185,7 +181,6 @@ export default function LandingPage() {
                 </div>
               </a>
             </div>
-            {/* </CHANGE> */}
           </div>
         </section>
 
@@ -235,7 +230,6 @@ export default function LandingPage() {
                 priority
                 className="w-full h-auto object-contain rounded-xl mb-4"
               />
-              {/* </CHANGE> */}
               <p className="text-gray-700 font-semibold text-center text-lg">Criança aprendendo com alegria</p>
             </div>
             <p className="text-lg text-gray-700 mb-4 leading-relaxed">
@@ -376,14 +370,13 @@ export default function LandingPage() {
             {/* Kit Image */}
             <div className="mb-4 text-center">
               <Image
-                src="https://i.ibb.co/Z16FjnNB/Kits-pedag-gicos-para-acelerar-a-aprendizagem-fortalecer-a-coordena-o-motora-e-desenvolver-a-consci.jpg"
+                src="https://i.ibb.co/Z16FjnNB/Kits-pedag-gicos-para-acelerar-a-aprendizagem-fortalecer-a-coordena_o-motora-e-desenvolver-a-consci.jpg"
                 alt="Kits pedagógicos"
                 width={600}
                 height={400}
                 loading="lazy"
                 className="w-full rounded-2xl shadow-lg"
               />
-              {/* </CHANGE> */}
             </div>
 
             {/* Bonuses */}
@@ -395,14 +388,13 @@ export default function LandingPage() {
             {/* Bonus Image */}
             <div className="mb-4 text-center">
               <Image
-                src="https://i.ibb.co/F4rSL8s9/Seus-filhos-acham-a-B-blia-chata-Transforme-o-aprendizado-em-divers-o-com-o-Kit-de-Jogos-B-blicos-14.jpg"
+                src="https://i.ibb.co/F4rSL8s9/Seus-filhos-acham-a-B-blia-chata-Transforme-o-aprendizado-em-divers_o-com-o-Kit-de-Jogos-B-blicos-14.jpg"
                 alt="Bónus exclusivos"
                 width={600}
                 height={400}
                 loading="lazy"
                 className="w-full rounded-2xl shadow-lg"
               />
-              {/* </CHANGE> */}
             </div>
 
             {/* Video Class */}
@@ -417,7 +409,7 @@ export default function LandingPage() {
             {/* CTA Button */}
             <div className="text-center">
               <a
-                href="https://go.centerpag.com/PPU38CQ2EPJ"
+                href="https://go.perfectpay.com.br/PPU38CQ2BTT"
                 target="_blank"
                 rel="noopener noreferrer"
                 id="purchase-button"
@@ -429,13 +421,11 @@ export default function LandingPage() {
                 </div>
               </a>
             </div>
-            {/* </CHANGE> */}
 
             <div className="mt-6 text-center animate-bounce">
               <div className="text-6xl">⬇️</div>
               <p className="text-white font-bold text-lg mt-2">Clique aqui para garantir!</p>
             </div>
-            {/* </CHANGE> */}
           </div>
         </section>
 
@@ -498,7 +488,6 @@ export default function LandingPage() {
                         loading="lazy"
                         className="w-full rounded-2xl"
                       />
-                      {/* </CHANGE> */}
                     </div>
                   ))}
                 </div>
@@ -585,7 +574,6 @@ export default function LandingPage() {
                         loading="lazy"
                         className="max-w-full max-h-[400px] object-contain rounded-2xl"
                       />
-                      {/* </CHANGE> */}
                     </div>
                   ))}
                 </div>
@@ -633,7 +621,6 @@ export default function LandingPage() {
           id="pricing-section"
           className="px-4 py-4 bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 text-white"
         >
-          {/* </CHANGE> */}
           <div className="max-w-sm mx-auto text-center">
             <h3 className="text-2xl font-bold mb-4">💸 Quanto custa?</h3>
             <div className="bg-white/20 rounded-2xl p-6 mb-4 border-2 border-white/30">
@@ -692,7 +679,7 @@ export default function LandingPage() {
               </div>
             </div>
             <a
-              href="https://go.centerpag.com/PPU38CQ2EPJ"
+              href="https://go.perfectpay.com.br/PPU38CQ2BTT"
               target="_blank"
               rel="noopener noreferrer"
               id="purchase-button"
@@ -722,7 +709,6 @@ export default function LandingPage() {
                   loading="lazy"
                   className="w-64 h-64 object-cover rounded-2xl mx-auto mb-6 shadow-lg border-4 border-purple-200"
                 />
-                {/* </CHANGE> */}
                 <h4 className="text-2xl font-bold text-purple-900 mb-2">Professora Sandra Oliveira</h4>
                 <p className="text-lg text-purple-700 font-semibold">Especialista em Desenvolvimento Infantil</p>
               </div>
